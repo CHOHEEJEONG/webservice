@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pseudo class & element</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+        }
+        .box:hover{
+            background-color: salmon;
+        }
+        input:focus{
+            background-color: red;
+        }
+        button:active{
+            background-color: yellowgreen;
+        }
+        a{
+            text-decoration: none; /*밑줄제거*/
+        }
+        a:hover{ /*마우스를 올렸을 때 발생하는 peseudo class*/
+            text-decoration: underline;
+        }
+        a:link {  /*한번도 방문하지 않았을 때 발생하는 peseudo class*/
+            color : red
+        }
+        a:visited{  /*방문한 적이 있을 때 발생하는 peseudo class*/
+            color: seagreen;
+        }
+        #one::first-letter{
+            font-weight: bold;
+            color: red;
+        }
+        #first::first-line{
+            background-color: yellow;
+        }
+       .quote::before{
+            content: "'";
+            color: violet;
+        }
+        .quote::after{
+            content: "'";
+            color: violet;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <input type="text">
+    <button>버튼</button>
+    <a href="http://facebook.com">페이스북</a>
+    <p id="one">Lorem ipsum dolor sit amet, consectetur adipiscing elit.1</p>
+    <p id="first">Lorem ipsum dolor sit amet, consectetur adipiscing elit.2</p>
+    <p id="quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit.3</p>
+
+</body>
+</html>

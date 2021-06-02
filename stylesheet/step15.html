@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css weight</title>
+    <style>
+        li{
+            background-color: yellow; /*요소 선택자*/
+        }
+        ul li{
+            background-color: green;  /*요소 선택자*/
+        }
+        .active{
+            background-color: pink;
+        }
+        li.active{
+            background-color: skyblue;
+        }
+        #one{
+            background-color: gold; /*클래스 선택자*/
+        }
+        #one{
+            background-color: blueviolet !important;         }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="nav">
+            <ul>
+                <li class="active" id="one"
+                style="background-color: cornflowerblue !important;">하나 인라인!important 막강</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
