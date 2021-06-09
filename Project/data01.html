@@ -11,18 +11,19 @@
             $('#btn').click(function(){
 
                 $.ajax({
-                    url : '전국공공시설개방정보표준데이터.json',
+                    url : 'publicfacility_clean.json',
                     type : 'GET',
                     dataType : 'json',
                     error : function(){
                         alert('error')
                     },
                     success : function(json){
-                        const recordsArray = json.records;
+                        const publicfacilityArray = json.publicfacility;
                         let html = '<ul>';
-                        for(const obj of recordsArray){
+                        for(const obj of publicfacilityArray){
                             let name = obj.개방시설명;
                             let placeName = obj.개방장소명;
+                            let facility = obj.개방시설유형구분;
                             let closed = obj.휴관일;
                             let weekStart = obj.평일운영시작시각;
                             let weekEnd = obj.평일운영종료시각;
@@ -34,19 +35,19 @@
                             let overHour = obj.초과사용단위시간;
                             let overPay = obj.초과사용료;
                             let member = obj.수용가능인원수;
-                            let area = obj.면적;
+                            
                             let info = obj.부대시설정보;
                             let application = obj.신청방법구분;
-                            let photo = obj.시설사진정보;
+                            
                             let newAdress = obj.소재지도로명주소;
                             let basedAdress = obj.소재지지번주소;
                             let agency = obj.관리기관명;
-                            let section =  obj.담당부서명;
+                            
                             let tel = obj.사용안내전화번호;
-                            let page = obj.홈페이지주소;
+                            
                             let latitude = obj.위도;
                             let longitude = obj.경도;
-                            let dateOfData = obj.데이터기준일자;
+                            
                             
 
                             html += "<li>" +  name + "(" + placeName +  ")" + closed + weekStart + weekEnd +weekendStart 
