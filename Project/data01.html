@@ -11,7 +11,7 @@
             $('#btn').click(function(){
 
                 $.ajax({
-                    url : 'publicfacility_clean.json',
+                    url : 'final_publicfacility.json',
                     type : 'GET',
                     dataType : 'json',
                     error : function(){
@@ -21,41 +21,39 @@
                         const publicfacilityArray = json.publicfacility;
                         let html = '<ul>';
                         for(const obj of publicfacilityArray){
-                            let name = obj.개방시설명;
-                            let placeName = obj.개방장소명;
-                            let facility = obj.개방시설유형구분;
-                            let closed = obj.휴관일;
-                            let weekStart = obj.평일운영시작시각;
-                            let weekEnd = obj.평일운영종료시각;
-                            let weekendStart = obj.주말운영시작시각
-                            let weekendEnd = obj.주말운영종료시각;
-                            let isCharge = obj.유료사용여부;
-                            let hour = obj.사용기준시간;
-                            let pay = obj.사용료;
-                            let overHour = obj.초과사용단위시간;
-                            let overPay = obj.초과사용료;
-                            let member = obj.수용가능인원수;
+
+                            let Facility_nm = obj.Facility_nm;
+                            let Location_nm = obj.Location_nm;
+                            let Facility_Type = obj.Facility_Type;
+                            let OffDay = obj.OffDay;
+                            let DayOpenTIme = obj.DayOpenTIme;
+                            let DayEndTime = obj.DayEndTime;
+                            let EndOpenTime = obj.EndOpenTime
+                            let EndEndTime = obj.EndEndTime;
+                            let Cost = obj.Cost;
+                           
+                            let Capacity = obj.Capacity;
                             
-                            let info = obj.부대시설정보;
-                            let application = obj.신청방법구분;
+                            let Internal_Info = obj.Internal_Info;
+                            let Regi_Method = obj.Regi_Method;
                             
-                            let newAdress = obj.소재지도로명주소;
-                            let basedAdress = obj.소재지지번주소;
-                            let agency = obj.관리기관명;
+                            let Loc_New_Address = obj.Loc_New_Address;
+                            let Loc_Address = obj.Loc_Address;
+                            let POC_nm = obj.POC_nm;
                             
-                            let tel = obj.사용안내전화번호;
+                            let POC_num = obj.POC_num;
                             
-                            let latitude = obj.위도;
-                            let longitude = obj.경도;
+                            let Lat = obj.Lat;
+                            let Lng = obj.Lng;
                             
                             
 
-                            html += "<li>" +  name + "(" + placeName +  ")" + facility + "<br>" + closed + "<br>" 
-                                + weekStart + " - " + weekEnd + "<br>" + weekendStart + " - " + weekendEnd + "<br>"  
-                                + "<br>" + isCharge + hour + pay + overHour + overPay 
-                                + "<br>"  + member + info + application + "<br>" 
-                                + newAdress + basedAdress + "<br>" + agency + tel 
-                                + "<br>" + latitude + longitude + "</li>";
+                            html += "<li>" +  Facility_nm + "(" + Location_nm +  ")" + Facility_Type + "<br>" + OffDay + "<br>" 
+                                + DayOpenTIme + " - " + DayEndTime + "<br>" + EndOpenTime + " - " + EndEndTime + "<br>"  
+                                + "<br>" + Cost
+                                + "<br>"  + Capacity + Internal_Info + Regi_Method + "<br>" 
+                                + Loc_New_Address + Loc_Address + "<br>" + POC_nm + POC_num 
+                                + "<br>" + Lat + Lng + "</li>";
                         }
                         html += "</ul>";
                         $("#sel").append(html);
