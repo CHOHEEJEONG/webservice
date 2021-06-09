@@ -50,9 +50,12 @@
                             
                             
 
-                            html += "<li>" +  name + "(" + placeName +  ")" + facility + closed + weekStart + weekEnd +weekendStart 
-                                + weekendEnd + isCharge + hour + pay + overHour + overPay + member + info + application 
-                                + newAdress + basedAdress +agency + tel + latitude + longitude + "</li>";
+                            html += "<li>" +  name + "(" + placeName +  ")" + facility + "<br>" + closed + "<br>" 
+                                + weekStart + " - " + weekEnd + "<br>" + weekendStart + " - " + weekendEnd + "<br>"  
+                                + "<br>" + isCharge + hour + pay + overHour + overPay 
+                                + "<br>"  + member + info + application + "<br>" 
+                                + newAdress + basedAdress + "<br>" + agency + tel 
+                                + "<br>" + latitude + longitude + "</li>";
                         }
                         html += "</ul>";
                         $("#sel").append(html);
