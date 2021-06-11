@@ -1,5 +1,4 @@
 <!-- 정현석 앱 키 a9f11824227fa73885a5a969e86a34db -->
-<!-- 정초희 앱 키 226c8fcd0301bbaab162a7f83afe082b-->
 
 
 <!DOCTYPE html>
@@ -30,50 +29,32 @@
             map = _map;
         }
 
+        $.ajax({
+            url: 'korea_map/final_korea_shape.json',
+            type: 'GET',
+            dataType: 'json',
+            error: function () {
+                alert('error!')
+            },
+            success: function (json) {
+                var data = json.features;
+                var name = '';            //행정구 명
+                var code = '';
+                $.each(data, function (index, val) {
+                    name = val.properties.CTP_KOR_NM;
+                    code = val.properties.CTPRVN_CD;
 
-        $.getJSON("korea_map/final_korea_shape.json", function (geojson) {
-            var data = geojson.features;
-            var name = '';            //행정구 명
-            var code = '';
-            $.each(data, function (index, val) {
-                name = val.properties.CTP_KOR_NM;
-                code = val.properties.CTPRVN_CD;
+                    if (val.geometry.type == "MultiPolygon") {
+                        displayArea(name, code, val.geometry.coordinates, true);
 
-                if (val.geometry.type == "MultiPolygon") {
-                    displayArea(name, code, val.geometry.coordinates, true);
+                    }
+                    else {
+                        displayArea(name, code, val.geometry.coordinates, false);
 
-                }
-                else {
-                    displayArea(name, code, val.geometry.coordinates, false);
-
-                }
-            });
+                    }
+                });
+            }
         });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         function makePolygon(coordinates) {
@@ -161,50 +142,10 @@
                 polygon.setOptions(mouseoutOption);
             });
 
-            // 다각형에 마우스다운 이벤트를 등록합니다
+            // 다각형에 클릭 이벤트를 등록합니다
             var downCount = 0;
             kakao.maps.event.addListener(polygon, 'click', function () {
                 location.href = "http://blog.naver.com/" + name;
-
-
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
