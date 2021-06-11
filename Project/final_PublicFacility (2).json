@@ -1,4 +1,5 @@
-[
+{
+  "publicfacility": [
  {
    "No": 1,
    "Facility_nm": "삼청테니스장",
@@ -60697,4 +60698,4 @@
    "road_address": "제주특별자치도 서귀포시 중산간서로 95",
    "address1_code": "39"
  }
-]
+]}
